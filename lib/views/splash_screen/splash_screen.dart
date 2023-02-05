@@ -1,18 +1,36 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shop_cents/consts/consts.dart';
-import 'package:shop_cents/widgets_common/app_logo_widget.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shop_cents/routes/named_route.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
+import '../../consts/colors.dart';
+import '../../consts/images.dart';
+import '../../consts/strings.dart';
+import '../../consts/styles.dart';
+import '../../widgets_common/app_logo_widget.dart';
 
 final imageSplashProvider = Provider<String>((ref) => icSplashBg);
 
-class _SplashScreenState extends State<SplashScreen> {
+class SplashScreen extends ConsumerStatefulWidget {
+  const SplashScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  ConsumerState createState() => _SplashState();
+}
+
+class _SplashState extends ConsumerState<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      context.goNamed(root);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
