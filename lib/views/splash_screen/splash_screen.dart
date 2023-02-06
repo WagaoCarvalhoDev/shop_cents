@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shop_cents/routes/named_route.dart';
 
 import '../../consts/colors.dart';
 import '../../consts/images.dart';
 import '../../consts/strings.dart';
 import '../../consts/styles.dart';
+import '../../routes/named_route.dart';
 import '../../widgets_common/app_logo_widget.dart';
 
 final imageSplashProvider = Provider<String>((ref) => icSplashBg);
@@ -23,12 +23,16 @@ class SplashScreen extends ConsumerStatefulWidget {
 }
 
 class _SplashState extends ConsumerState<SplashScreen> {
+  changeScreen() {
+    Timer(const Duration(seconds: 3), () {
+      context.goNamed(loginScreen);
+    });
+  }
+
   @override
   void initState() {
+    changeScreen();
     super.initState();
-    Timer(const Duration(seconds: 3), () {
-      context.goNamed(root);
-    });
   }
 
   @override

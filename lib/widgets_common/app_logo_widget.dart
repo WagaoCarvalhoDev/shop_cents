@@ -14,7 +14,7 @@ class AppLogoWidget extends StatelessWidget {
       return Container(
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(12)),
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         width: 77,
         height: 77,
         child: Image.asset(img),
